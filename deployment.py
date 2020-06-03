@@ -5,6 +5,7 @@ import sys
 import os
 import requests
 import fileinput
+import shutil
 
 def install_docker(user):
     subprocess.run(['sudo apt update'], shell=True, check=True)
@@ -47,16 +48,18 @@ def get_ip():
 
 def replace_file():
     ip = get_ip()
+    path = os.getcwd()
     with fileinput.FileInput("nginx.conf", inplace=True, backup='.bak') as file:
         for line in file:
             print(line.replace("__ip__", ip), end='')
+    shutil.move('%s/nginx.conf'%path, '%s/nginx-conf/nginx.conf' %path)
     print('---- ip has been replaced correctly -----')
 
 def move_files():
     #get path and introduce files to docker container
     path = os.getcwd()
-    subprocess.run(['docker cp %s/html wordpress:/var/www'%path], shell=True, check=True)
-    subprocess.run(['docker cp %s/standardDB.sql db:/'%path], shell=True, check=True)
+    subprocess.run(['sudo docker cp %s/html wordpress:/var/www'%path], shell=True, check=True)
+    subprocess.run(['sudo docker cp %s/standardDB.sql db:/'%path], shell=True, check=True)
     print('---- html and db files have been replaced -----')
 
 def docker_compose():
@@ -67,19 +70,19 @@ def docker_compose():
     print('---- docker containers have been set -----')
 
 def run_dumpsql():
-    subprocess.run(['docker exec -t -i db /bin/bash'], shell=True, check=True)
-    subprocess.run(['mysql -u admin -p wordpress < standardDB.sql'], shell=True, check=True)
+    subprocess.run(['sudo docker exec -t -i db /bin/bash'], shell=True, check=True)
+    subprocess.run(['sudo mysql -u admin -p wordpress < standardDB.sql'], shell=True, check=True)
     print("already imported")
 
 
 def main(argv):
     user = sys.argv[1]
-    install_docker(user)
-    install_compose()
+    #install_docker(user)
+    #install_compose()
     replace_file()
-    docker_compose()
-    move_files()
-    run_dumpsql()
+    #docker_compose()
+    #move_files()
+    #run_dumpsql()
 
 if __name__ == "__main__":
     main(sys.argv)

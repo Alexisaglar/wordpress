@@ -74,13 +74,12 @@ def run_dumpsql():
 
 def main(argv):
     user = sys.argv[1]
-    #install_docker(user)
-    #install_compose()
-    #replace_file()
-    #docker_compose()
-    #move_files()
-    #run_dumpsql()
-    get_ip()
+    install_docker(user)
+    install_compose()
+    replace_file()
+    docker_compose()
+    move_files()
+    run_dumpsql()
 
 if __name__ == "__main__":
     main(sys.argv)

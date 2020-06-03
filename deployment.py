@@ -61,9 +61,9 @@ def move_files():
 
 def docker_compose():
     #Crea contenedores de docker
-    subprocess.run(['docker-compose up -d'], shell=True, check=True)
+    subprocess.run(['sudo docker-compose up -d'], shell=True, check=True)
     #Estatus de docker
-    subprocess.run(['docker-compose ps'], shell=True, check=True)
+    subprocess.run(['sudo docker-compose ps'], shell=True, check=True)
     print('---- docker containers have been set -----')
 
 def run_dumpsql():

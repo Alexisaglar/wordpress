@@ -73,6 +73,7 @@ def docker_compose():
 def run_dumpsql():
     subprocess.run(['sudo docker exec -t -i db /bin/bash'], shell=True, check=True)
     subprocess.run(['mysql -u admin -p wordpress < standardDB.sql'], shell=True, check=True)
+    subprocess.run(['docker-compose restart -t 30 worker'], shell=True, check=True)
     print("already imported")
 
 

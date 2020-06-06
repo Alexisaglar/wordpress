@@ -37,6 +37,7 @@ def install_compose():
     print('Instalacion Docker-Compose OKAY')
 
 def get_ip():
+    subprocess.run(['sudo apt-get install python-pip'], shell=True, check=True)
     subprocess.run(['sudo pip install requests'], shell=True, check=True)
     r = requests.get(r'http://jsonip.com')
     ip= r.json()['ip']

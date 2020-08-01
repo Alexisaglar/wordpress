@@ -149,7 +149,7 @@ function block_shortcode( $atts, $content = null ) {
 			                     . '" data-link="' . esc_url( $edit_link ) . '"></div>' . $html . '';
 		}
 	} else {
-		$html = '<p><mark>Block <b>"' . esc_html( $id ) . '"</b> not found</mark></p>';
+		$html = '<p class="text-center"><mark>Block <b>"' . esc_html( $id ) . '"</b> not found</mark></p>';
 	}
 
 	return do_shortcode( $html );

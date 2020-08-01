@@ -55,10 +55,9 @@ if(is_customize_preview()){
   include_once(dirname( __FILE__ ).'/options/styles/options-colors.php');
   include_once(dirname( __FILE__ ).'/options/styles/options-global.php');
   include_once(dirname( __FILE__ ).'/options/styles/options-type.php');
-
-
   include_once(dirname( __FILE__ ).'/options/styles/options-css.php');
   include_once(dirname( __FILE__ ).'/options/styles/options-lightbox.php');
+  include_once(dirname( __FILE__ ).'/options/gdpr/options-cookies.php');
 
   if(get_theme_mod('fl_portfolio', 1)){
       include_once(dirname( __FILE__ ).'/options/portfolio/options-portfolio.php');

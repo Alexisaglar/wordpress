@@ -111,6 +111,11 @@ if ( is_woocommerce_activated() ) {
 		require $integrations_url . '/wp-seo/class-wp-seo.php';
 	}
 
+	// Rank Math Integration.
+	if ( class_exists( 'RankMath' ) ) {
+		require $integrations_url . '/rank-math/class-rank-math.php';
+	}
+
 	// WooCommerce Ajax Navigation.
 	add_filter( '_ajax_layered_nav_containers', 'ux_add_custom_container' );
 	function ux_add_custom_container( $containers ) {

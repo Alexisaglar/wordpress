@@ -187,10 +187,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 <?php do_action( 'woocommerce_before_cart_collaterals' ); ?>
 
 <div class="cart-collaterals large-5 col pb-0">
-	<?php if ( get_theme_mod( 'cart_sticky_sidebar' ) ) { ?>
-	<div class="is-sticky-column">
-		<div class="is-sticky-column__inner">
-	<?php } ?>
+	<?php flatsome_sticky_column_open( 'cart_sticky_sidebar' ); ?>
 
 	<div class="cart-sidebar col-inner <?php echo $sidebar_classes; ?>">
 		<?php
@@ -212,10 +209,8 @@ do_action( 'woocommerce_before_cart' ); ?>
 		<?php } ?>
 		<?php do_action( 'flatsome_cart_sidebar' ); ?>
 	</div>
-<?php if ( get_theme_mod( 'cart_sticky_sidebar' ) ) { ?>
-	</div>
-	</div>
-<?php } ?>
+
+	<?php flatsome_sticky_column_close( 'cart_sticky_sidebar' ); ?>
 </div>
 </div>
 

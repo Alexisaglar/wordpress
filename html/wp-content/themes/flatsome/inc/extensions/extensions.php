@@ -17,6 +17,10 @@ if(get_theme_mod('live_search', 1)){
   require $extensions_url.'/flatsome-live-search/flatsome-live-search.php';
 }
 
+if ( get_theme_mod( 'cookie_notice' ) || is_customize_preview() ) {
+	require $extensions_url . '/flatsome-cookie-notice/flatsome-cookie-notice.php';
+}
+
 if(is_woocommerce_activated()){
 	if(!get_theme_mod('disable_quick_view', 0)){
 		require $extensions_url.'/flatsome-wc-quick-view/flatsome-quick-view.php';

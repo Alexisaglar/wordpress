@@ -36,7 +36,7 @@ Flatsome_Option::add_field( 'option', array(
 Flatsome_Option::add_field( 'option', array(
 	'type'            => 'select',
 	'settings'        => 'product_custom_layout',
-	'label'           => __( 'Custom Product Layout', 'flatsome-admin' ),
+	'label'           => __( 'Custom product layout', 'flatsome' ),
 	'description'     => __( 'Create a custom product layout by using the UX Builder. You need to select a Block and then open it in the UX Builder from a product page in the front-end.', 'flatsome-admin' ),
 	'section'         => 'product-page',
 	'active_callback' => array(
@@ -435,11 +435,42 @@ Flatsome_Option::add_field( 'option', array(
 ) );
 
 Flatsome_Option::add_field( 'option', array(
-	'type'     => 'text',
+	'type'     => 'slider',
 	'settings' => 'related_products_pr_row',
-	'label'    => __( 'Products pr. row', 'flatsome-admin' ),
+	'label'    => __( 'Products per row - Desktop', 'flatsome-admin' ),
 	'section'  => 'product-page',
-	'default'  => '4',
+	'default'  => 4,
+	'choices'  => array(
+		'min'  => 1,
+		'max'  => 6,
+		'step' => 1,
+	),
+) );
+
+Flatsome_Option::add_field( 'option', array(
+	'type'     => 'slider',
+	'settings' => 'related_products_pr_row_tablet',
+	'label'    => __( 'Products per row - Tablet', 'flatsome-admin' ) . ' (NEW)',
+	'section'  => 'product-page',
+	'default'  => 3,
+	'choices'  => array(
+		'min'  => 1,
+		'max'  => 4,
+		'step' => 1,
+	),
+) );
+
+Flatsome_Option::add_field( 'option', array(
+	'type'     => 'slider',
+	'settings' => 'related_products_pr_row_mobile',
+	'label'    => __( 'Products per row - Mobile', 'flatsome-admin' ) . ' (NEW)',
+	'section'  => 'product-page',
+	'default'  => 2,
+	'choices'  => array(
+		'min'  => 1,
+		'max'  => 3,
+		'step' => 1,
+	),
 ) );
 
 Flatsome_Option::add_field( 'option', array(

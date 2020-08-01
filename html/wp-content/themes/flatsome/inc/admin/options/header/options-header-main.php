@@ -64,7 +64,7 @@ Flatsome_Option::add_field( 'option',  array(
 	'type'        => 'color-alpha',
     'alpha' => true,
     'settings'     => 'header_bg',
-    'label'       => __( 'Background Color', 'flatsome-admin' ), 
+    'label'       => __( 'Background Color', 'flatsome-admin' ),
     'section'     => 'main_bar',
 	'default'     => 'rgba(255,255,255,0.9)',
 	'transport' => 'postMessage'
@@ -86,15 +86,17 @@ Flatsome_Option::add_field( 'option',  array(
 	'type'        => 'radio-buttonset',
 	'settings'     => 'header_bg_img_repeat',
 	'label'       => __( 'Background Repeat', 'flatsome-admin' ),
-	//'description' => __( 'This is the control description', 'flatsome-admin' ),
-	//'help'        => __( 'This is some extra help. You can use this to add some additional instructions for users. The main description should go in the "description" of the field, this is only to be used for help tips.', 'flatsome-admin' ),
 	'section'     => 'main_bar',
 	'default'     => 'repeat',
 	'choices'     => $bg_repeat,
 	'transport' => 'postMessage',
-	'required'  => array(
-        array( 'settings'  => 'header_bg_img', 'operator' => '==', 'value' => true),
-    ),
+	'active_callback' => array(
+		array(
+			'setting'  => 'header_bg_img',
+			'operator' => '!==',
+			'value'    => '',
+		),
+	),
 ));
 
 Flatsome_Option::add_field( 'option',  array(
@@ -215,7 +217,7 @@ Flatsome_Option::add_field( 'option',  array(
 Flatsome_Option::add_field( 'option',  array(
     'type'        => 'color',
     'settings'     => 'type_nav_color_hover',
-    'label'       => __( 'Nav Color:hover', 'flatsome-admin' ),
+    'label'       => __( 'Nav Color :hover', 'flatsome-admin' ),
 	'section'     => 'main_bar',
     'transport' => $transport
 ));
@@ -224,7 +226,7 @@ Flatsome_Option::add_field( 'option',  array(
 	'type'        => 'color-alpha',
     'alpha' => true,
     'settings'     => 'header_icons_color',
-    'label'       => __( 'Icons Color', 'flatsome-admin' ), 
+    'label'       => __( 'Icons Color', 'flatsome-admin' ),
     'section'     => 'main_bar',
 	'default'     => '',
 	'transport' => $transport
@@ -234,7 +236,7 @@ Flatsome_Option::add_field( 'option',  array(
 	'type'        => 'color-alpha',
     'alpha' => true,
     'settings'     => 'header_icons_color_hover',
-    'label'       => __( 'Icons Color :hover', 'flatsome-admin' ), 
+    'label'       => __( 'Icons Color :hover', 'flatsome-admin' ),
     'section'     => 'main_bar',
 	'default'     => '',
 	'transport' => $transport

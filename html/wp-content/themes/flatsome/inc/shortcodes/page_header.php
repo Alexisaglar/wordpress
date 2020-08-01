@@ -29,6 +29,8 @@ function flatsome_page_header_shortcode($atts) {
     'bg' => '',
     'bg_color' => '',
     'bg_overlay' => '',
+	'bg_overlay__sm' => '',
+	'bg_overlay__md' => '',
     'bg_pos' => '',
     'bg_size' => '',
 

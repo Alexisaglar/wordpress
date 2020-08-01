@@ -585,7 +585,15 @@ if ( ! function_exists( 'of_options' ) ) {
 			$of_options[] = array(
 				'name' => 'Yoast Primary Category',
 				'id'   => 'wpseo_primary_term',
-				'desc' => 'Use Yoast primary category on product category pages and elements.',
+				'desc' => 'Use on product category pages and elements.',
+				'std'  => 0,
+				'type' => 'checkbox',
+			);
+
+			$of_options[] = array(
+				'name' => '',
+				'id'   => 'wpseo_manages_product_layout_priority',
+				'desc' => 'Manage custom product layout priority.',
 				'std'  => 0,
 				'type' => 'checkbox',
 			);
@@ -593,7 +601,7 @@ if ( ! function_exists( 'of_options' ) ) {
 			$of_options[] = array(
 				'name'  => 'Yoast Breadcrumbs',
 				'id'    => 'wpseo_breadcrumb',
-				'desc'  => 'Use Yoast breadcrumbs on product category pages, single product pages and elements.',
+				'desc'  => 'Use on product category pages, single product pages and elements.',
 				'std'   => 0,
 				'folds' => 1,
 				'type'  => 'checkbox',
@@ -605,6 +613,33 @@ if ( ! function_exists( 'of_options' ) ) {
 				'desc' => 'Remove the last static crumb on single product pages (product title).',
 				'std'  => 1,
 				'fold' => 'wpseo_breadcrumb',
+				'type' => 'checkbox',
+			);
+		}
+
+		// Rank Math options.
+		if ( class_exists( 'RankMath' ) ) {
+			$of_options[] = array(
+				'name' => 'Rank Math Primary Category',
+				'id'   => 'rank_math_primary_term',
+				'desc' => 'Use on product category pages and elements.',
+				'std'  => 0,
+				'type' => 'checkbox',
+			);
+
+			$of_options[] = array(
+				'name' => '',
+				'id'   => 'rank_math_manages_product_layout_priority',
+				'desc' => 'Manage custom product layout priority.',
+				'std'  => 0,
+				'type' => 'checkbox',
+			);
+
+			$of_options[] = array(
+				'name' => 'Rank Math Breadcrumbs',
+				'id'   => 'rank_math_breadcrumb',
+				'desc' => 'Use on product category pages, single product pages and elements.',
+				'std'  => 0,
 				'type' => 'checkbox',
 			);
 		}

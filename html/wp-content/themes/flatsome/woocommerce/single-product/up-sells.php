@@ -29,11 +29,13 @@ if ( $upsells ) : ?>
 
       if($type == 'grid') $type = 'row';
 
-      $repater['type'] = $type;
-      $repater['columns'] = get_theme_mod('related_products_pr_row','4');
-      $repater['class'] = get_theme_mod( 'equalize_product_box' ) ? 'equalize-box' : '';
-      $repater['slider_style'] = 'reveal';
-      $repater['row_spacing'] = 'small';
+		$repater['type']         = $type;
+		$repater['columns']      = get_theme_mod( 'related_products_pr_row', 4 );
+		$repater['columns__md']  = get_theme_mod( 'related_products_pr_row_tablet', 3 );
+		$repater['columns__sm']  = get_theme_mod( 'related_products_pr_row_mobile', 2 );
+		$repater['class']        = get_theme_mod( 'equalize_product_box' ) ? 'equalize-box' : '';
+		$repater['slider_style'] = 'reveal';
+		$repater['row_spacing']  = 'small';
 
       if(count($upsells) < $repater['columns']){
         $repater['type'] = 'row';

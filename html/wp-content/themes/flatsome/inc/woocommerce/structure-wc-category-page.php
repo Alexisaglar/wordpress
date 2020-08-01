@@ -129,6 +129,34 @@ if(is_admin()){
     add_action( 'product_cat_edit_form_fields', 'bottom_text_taxonomy_edit_meta_field', 10, 2 );
     add_action( 'product_tag_edit_form_fields', 'bottom_text_taxonomy_edit_meta_field', 10, 2 );
 
+	    function flatsome_custom_product_page_taxonomy_edit_meta_field( $term ) {
+		    $t_id = $term->term_id;
+		    // retrieve the existing value(s) for this meta field. This returns an array
+		    $term_meta = get_term_meta( $t_id, 'cat_meta' );
+		    if ( ! $term_meta ) {
+			    $term_meta = add_term_meta( $t_id, 'cat_meta', '' );
+		    }
+		    ?>
+		    <tr class="form-field">
+			    <th scope="row" valign="top"><label for="term_meta[cat_product_block]"><?php _e( 'Custom product layout', 'flatsome' ); echo ' (NEW)';?></label></th>
+			    <td>
+				    <?php
+				    $selected = esc_attr( isset( $term_meta[0]['cat_product_block'] ) ) ? esc_attr( $term_meta[0]['cat_product_block'] ) : 0;
+				    wp_dropdown_pages( array(
+					    'id'               => 'term_meta[cat_product_block]',
+					    'name'             => 'term_meta[cat_product_block]',
+					    'post_type'        => 'blocks',
+					    'show_option_none' => '-- None --',
+					    'selected'         => $selected,
+				    ) ); ?>
+				    <p class="description"><?php _e( 'Choose a custom product block layout for this category.', 'flatsome' ); ?></p>
+			    </td>
+		    </tr>
+		    <?php
+
+	    }
+
+	    add_action( 'product_cat_edit_form_fields', 'flatsome_custom_product_page_taxonomy_edit_meta_field', 10 );
 
     /* SAVE CUSTOM META*/
     function fl_save_taxonomy_custom_meta( $term_id ) {

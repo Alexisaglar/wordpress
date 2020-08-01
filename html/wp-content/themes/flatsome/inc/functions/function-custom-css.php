@@ -45,6 +45,12 @@ if($content_bg){ ?>
 <?php } ?>
 
 <?php
+$cookie_notice_bg_color = get_theme_mod( 'cookie_notice_bg_color' );
+if ( $cookie_notice_bg_color ) { ?>
+	.flatsome-cookies {background-color: <?php echo $cookie_notice_bg_color; ?>}
+<?php } ?>
+
+<?php
 $header_height = get_theme_mod('header_height', 90); ?>
 .header-main{height: <?php echo $header_height; ?>px}
 #logo img{max-height: <?php echo $header_height; ?>px}
@@ -284,9 +290,11 @@ if(get_theme_mod('color_texts')){
 // Type Navigations
 if(!empty($type_nav['font-family'])) {
 	echo '.nav > li > a {font-family:  "'.$type_nav['font-family'].'", sans-serif;}';
+	echo '.mobile-sidebar-levels-2 .nav > li > ul > li > a {font-family:  "'.$type_nav['font-family'].'", sans-serif;}';
 }
 if(!empty($type_nav['variant'])) {
 	echo '.nav > li > a {font-weight: '.intval($type_nav['variant']).';}';
+	echo '.mobile-sidebar-levels-2 .nav > li > ul > li > a {font-weight: '.intval($type_nav['variant']).';}';
 }
 // Type Headings
 if(!empty($type_headings['font-family'])) {
@@ -326,6 +334,31 @@ echo '.alt-font{font-weight: '.intval($type_alt['variant']).'!important;}';
 }
 
 ?>
+
+<?php if(get_theme_mod('type_nav_top_color')){ ?>
+.header:not(.transparent) .top-bar-nav > li > a {
+color: <?php echo get_theme_mod('type_nav_top_color'); ?>;
+}
+<?php } ?>
+<?php if(get_theme_mod('type_nav_top_color_hover')) { ?>
+.header:not(.transparent) .top-bar-nav.nav > li > a:hover,
+.header:not(.transparent) .top-bar-nav.nav > li.active > a,
+.header:not(.transparent) .top-bar-nav.nav > li.current > a,
+.header:not(.transparent) .top-bar-nav.nav > li > a.active,
+.header:not(.transparent) .top-bar-nav.nav > li > a.current{
+	color: <?php echo get_theme_mod('type_nav_top_color_hover'); ?>;
+}
+.top-bar-nav.nav-line-bottom > li > a:before,
+.top-bar-nav.nav-line-grow > li > a:before,
+.top-bar-nav.nav-line > li > a:before,
+.top-bar-nav.nav-box > li > a:hover,
+.top-bar-nav.nav-box > li.active > a,
+.top-bar-nav.nav-pills > li > a:hover,
+.top-bar-nav.nav-pills > li.active > a{
+color:#FFF!important;
+background-color: <?php echo get_theme_mod('type_nav_top_color_hover'); ?>;
+}
+<?php } ?>
 
 <?php if(get_theme_mod('type_nav_color')){ ?>
 .header:not(.transparent) .header-nav.nav > li > a {

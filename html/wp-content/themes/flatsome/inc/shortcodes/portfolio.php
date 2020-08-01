@@ -76,9 +76,6 @@ function flatsome_portfolio_shortcode($atts, $content = null, $tag) {
   // Fix old
   if($tag == 'featured_items_slider') $type = 'slider';
 
-  // Fix order
-  if($orderby == 'menu_order') $order = 'asc';
-
   // Set Classes
   $classes_box = array('portfolio-box','box','has-hover');
   $classes_image = array();

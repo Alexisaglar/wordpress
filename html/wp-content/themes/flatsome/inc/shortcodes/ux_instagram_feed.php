@@ -80,9 +80,9 @@ function ux_instagram_feed( $atts, $content = null ) {
 			foreach ( $media_array as $item ) {
 				echo '<div class="col"><div class="col-inner">';
 
-				$image_url = $item[ $size ];
-
-				if ( $item['type'] === 'video' && empty( $item['thumbnail_url'] ) ) {
+				if ( $item['type'] === 'image' ) {
+					$image_url = $item['original'];
+				} else {
 					$image_url = $item['link'] . 'media?size=l';
 				}
 

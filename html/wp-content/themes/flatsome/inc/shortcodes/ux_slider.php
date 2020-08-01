@@ -129,11 +129,11 @@ function shortcode_ux_slider($atts, $content=null) {
 
      <div class="loading-spin dark large centered"></div>
 
-     <style scope="scope">
-        <?php if($slide_width) { ?>
+     <?php if($slide_width) { ?>
+     <style>
             #<?php echo $_id; ?> .flickity-slider > *{ max-width: <?php echo $slide_width; ?>!important;
-         <?php } ?>
      </style>
+     <?php } ?>
 </div>
 
 <?php

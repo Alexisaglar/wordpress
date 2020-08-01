@@ -37,7 +37,6 @@ function ux_builder_admin_bar_link() {
 	global $post;
 	global $wpdb;
 	$is_woocommerce = function_exists( 'is_woocommerce' );
-
 	if ( ! is_page() && ! is_single() ) {
 		return;
 	}
@@ -61,16 +60,14 @@ function ux_builder_admin_bar_link() {
 	}
 
 	// Add link for editing custom product layout block.
-	if ( $is_woocommerce && is_product() && get_theme_mod( 'product_layout' ) === 'custom' && array_key_exists( 'blocks', $post_types ) ) {
-		$product_custom_layout = get_theme_mod( 'product_custom_layout' );
-		$block_id = flatsome_get_block_id( $product_custom_layout );
-
-		if ( $block_id ) {
+	if ( $is_woocommerce && is_product() && array_key_exists( 'blocks', $post_types ) ) {
+		$block = flatsome_product_block( $post->ID );
+		if ( $block ) {
 			$wp_admin_bar->add_menu( array(
 				'parent' => 'edit',
 				'id'     => 'edit_uxbuilder_product_layout',
 				'title'  => 'Edit product layout with UX Builder',
-				'href'   => ux_builder_edit_url( $post->ID, $block_id ),
+				'href'   => ux_builder_edit_url( $post->ID, $block['id'] ),
 			) );
 		}
 	}

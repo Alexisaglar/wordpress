@@ -124,3 +124,4 @@ function flatsome_html_after_footer(){
 	}
 }
 add_action('flatsome_after_footer', 'flatsome_html_after_footer');
+

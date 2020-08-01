@@ -6,7 +6,12 @@ add_ux_builder_shortcode( 'text', array(
     'category' => __( 'Content' ),
     'compile' => false,
     'thumbnail' =>  flatsome_ux_builder_thumbnail( 'text' ),
-    'template_shortcode' => "{content}\n",
+    'template_shortcode' => function ( $element, $parent = null ) {
+        if ( ! empty( $parent ) && 'ux_stack' === $parent['tag'] ) {
+            return "[ux_text{options}]\n\n{content}\n[/ux_text]\n";
+        }
+        return "{content}\n";
+    },
     'template' => flatsome_ux_builder_template( 'text.html' ),
     'directives' => array( 'ux-text-editor' ),
     'priority' => 1,

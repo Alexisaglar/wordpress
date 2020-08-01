@@ -44,7 +44,6 @@ Flatsome_Option::add_field( 'option', array(
 	'settings' => 'category_sidebar',
 	'label'    => __( 'Layout', 'flatsome-admin' ),
 	'section'  => 'woocommerce_product_catalog',
-	//'transport' => $transport,
 	'default'  => 'left-sidebar',
 	'choices'  => array(
 		'none'          => $image_url . 'category-no-sidebar.svg',
@@ -52,6 +51,26 @@ Flatsome_Option::add_field( 'option', array(
 		'right-sidebar' => $image_url . 'category-right-sidebar.svg',
 		'off-canvas'    => $image_url . 'category-off-canvas.svg',
 	),
+) );
+
+Flatsome_Option::add_field( 'option', array(
+	'type'            => 'checkbox',
+	'settings'        => 'category_sticky_sidebar',
+	'label'           => __( 'Sticky sidebar', 'flatsome-admin' ) . ' (NEW)',
+	'section'         => 'woocommerce_product_catalog',
+	'active_callback' => array(
+		array(
+			'setting'  => 'category_sidebar',
+			'operator' => '!==',
+			'value'    => 'none',
+		),
+		array(
+			'setting'  => 'category_sidebar',
+			'operator' => '!==',
+			'value'    => 'off-canvas',
+		),
+	),
+	'default'         => 0,
 ) );
 
 Flatsome_Option::add_field( 'option', array(
@@ -198,7 +217,10 @@ Flatsome_Option::add_field( 'option', array(
 	'label'           => __( 'Show home link in breadcrumb', 'flatsome-admin' ),
 	'section'         => 'woocommerce_product_catalog',
 	'active_callback' => function () {
-		return get_theme_mod( 'wpseo_breadcrumb' ) ? false : true;
+		$wpseo     = class_exists( 'WPSEO_Frontend' ) && get_theme_mod( 'wpseo_breadcrumb' ) ? true : false;
+		$rank_math = class_exists( 'RankMath' ) && get_theme_mod( 'rank_math_breadcrumb' ) ? true : false;
+
+		return ! $wpseo && ! $rank_math;
 	},
 	'default'         => 1,
 ) );

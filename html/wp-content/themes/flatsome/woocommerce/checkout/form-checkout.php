@@ -83,10 +83,7 @@ if ( flatsome_option( 'facebook_login_checkout' ) && get_option( 'woocommerce_en
 		</div>
 
 		<div class="large-5 col">
-			<?php if ( get_theme_mod( 'checkout_sticky_sidebar', 0 ) ) { ?>
-			<div class="is-sticky-column">
-				<div class="is-sticky-column__inner">
-					<?php } ?>
+			<?php flatsome_sticky_column_open( 'checkout_sticky_sidebar' ); ?>
 
 					<div class="col-inner <?php echo esc_attr( $sidebar_classes ); ?>">
 						<div class="checkout-sidebar sm-touch-scroll">
@@ -102,10 +99,7 @@ if ( flatsome_option( 'facebook_login_checkout' ) && get_option( 'woocommerce_en
 						</div>
 					</div>
 
-					<?php if ( get_theme_mod( 'checkout_sticky_sidebar', 0 ) ) { ?>
-				</div>
-			</div>
-		<?php } ?>
+			<?php flatsome_sticky_column_close( 'checkout_sticky_sidebar' ); ?>
 		</div>
 
 	</div>

@@ -169,8 +169,13 @@ function flatsome_scripts() {
 			'close_btn_inside' => apply_filters( 'flatsome_lightbox_close_btn_inside', false ),
 		),
 		'user'          => array(
-			'can_edit_pages' => current_user_can( 'edit_pages'
-			),
+			'can_edit_pages' => current_user_can( 'edit_pages' ),
+		),
+		'i18n'          => array(
+			'mainMenu' => __( 'Main Menu', 'flatsome' ),
+		),
+		'options'       => array(
+			'cookie_notice_version' => get_theme_mod( 'cookie_notice_version', '1' ),
 		),
 	) );
 
@@ -181,6 +186,10 @@ function flatsome_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	// Custom Properties polyfill for Internet Explorer.
+	wp_register_script( 'css-vars-polyfill', 'https://cdn.jsdelivr.net/gh/nuxodin/ie11CustomProperties@4.0.1/ie11CustomProperties.min.js', array(), '4.0.1', true );
+	wp_script_add_data( 'css-vars-polyfill', 'conditional', 'IE' );
 }
 
 add_action( 'wp_enqueue_scripts', 'flatsome_scripts', 100 );

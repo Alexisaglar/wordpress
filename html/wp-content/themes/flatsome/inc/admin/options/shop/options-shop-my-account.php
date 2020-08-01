@@ -11,7 +11,7 @@ Flatsome_Option::add_field( 'option', array(
 	'type'      => 'color-alpha',
 	'alpha'     => true,
 	'settings'  => 'my_account_title_bg_color',
-	'label'     => __( 'Title Background Color', 'flatsome-admin' ) . ' (NEW)',
+	'label'     => __( 'Title Background Color', 'flatsome-admin' ),
 	'section'   => 'fl-my-account',
 	'default'   => '',
 	'transport' => $transport,
@@ -29,7 +29,7 @@ Flatsome_Option::add_field( 'option',  array(
 Flatsome_Option::add_field( 'option', array(
 	'type'        => 'radio-image',
 	'settings'    => 'my_account_title_align',
-	'label'       => __( 'Title Align', 'flatsome-admin' ) . ' (NEW)',
+	'label'       => __( 'Title Align', 'flatsome-admin' ),
 	'description' => __( 'For logged in users only.', 'flatsome-admin' ),
 	'section'     => 'fl-my-account',
 	'default'     => 'left',
@@ -44,7 +44,7 @@ Flatsome_Option::add_field( 'option', array(
 Flatsome_Option::add_field( 'option', array(
 	'type'      => 'radio-image',
 	'settings'  => 'my_account_title_text_color',
-	'label'     => __( 'Text color', 'flatsome-admin' ) . ' (NEW)',
+	'label'     => __( 'Text color', 'flatsome-admin' ),
 	'section'   => 'fl-my-account',
 	'default'   => 'dark',
 	'transport' => $transport,

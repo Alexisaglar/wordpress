@@ -37,6 +37,8 @@ function shortcode_latest_from_blog($atts, $content = null, $tag) {
 		'excerpt' => 'visible',
 		'excerpt_length' => 15,
 		'offset' => '',
+		'orderby' => 'date',
+		'order' => 'DESC',
 
 		// Read more
 		'readmore' => '',
@@ -168,7 +170,9 @@ function shortcode_latest_from_blog($atts, $content = null, $tag) {
 		'offset' => $offset,
 		'cat' => $cat,
 		'posts_per_page' => $posts,
-		'ignore_sticky_posts' => true
+		'ignore_sticky_posts' => true,
+		'orderby'             => $orderby,
+		'order'               => $order,
 	);
 
 	// Added for Flatsome v2 fallback
@@ -201,7 +205,8 @@ get_flatsome_repeater_start($repeater);
 
 while ( $recentPosts->have_posts() ) : $recentPosts->the_post();
 
-			$col_class = array('post-item');
+			$col_class    = array( 'post-item' );
+			$show_excerpt = $excerpt;
 
 			if(get_post_format() == 'video') $col_class[] = 'has-post-icon';
 
@@ -219,7 +224,7 @@ while ( $recentPosts->have_posts() ) : $recentPosts->the_post();
 	        if($grid[$current]['size']) $image_size = $grid[$current]['size'];
 
 	        // Hide excerpt for small sizes
-	        if($grid[$current]['size'] == 'thumbnail') $excerpt = 'false';
+	        if($grid[$current]['size'] == 'thumbnail') $show_excerpt = 'false';
 	    }
 
 		?>
@@ -260,8 +265,8 @@ while ( $recentPosts->have_posts() ) : $recentPosts->the_post();
 					<h5 class="post-title is-<?php echo $title_size; ?> <?php echo $title_style;?>"><?php the_title(); ?></h5>
 					<?php if((!has_post_thumbnail() && $show_date !== 'false') || $show_date == 'text') {?><div class="post-meta is-small op-8"><?php echo get_the_date(); ?></div><?php } ?>
 					<div class="is-divider"></div>
-					<?php if($excerpt !== 'false') { ?>
-					<p class="from_the_blog_excerpt <?php if($excerpt !== 'visible'){ echo 'show-on-hover hover-'.$excerpt; } ?>"><?php
+					<?php if($show_excerpt !== 'false') { ?>
+					<p class="from_the_blog_excerpt <?php if($show_excerpt !== 'visible'){ echo 'show-on-hover hover-'.$show_excerpt; } ?>"><?php
 					  $the_excerpt  = get_the_excerpt();
 					  $excerpt_more = apply_filters( 'excerpt_more', ' [...]' );
 					  echo flatsome_string_limit_words($the_excerpt, $excerpt_length) . $excerpt_more;

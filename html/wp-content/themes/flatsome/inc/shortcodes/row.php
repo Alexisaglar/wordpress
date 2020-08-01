@@ -76,7 +76,8 @@ function ux_row($atts, $content = null) {
 
 // [col]
 function ux_col($atts, $content = null) {
-	extract( shortcode_atts( array(
+	extract( $atts = shortcode_atts( array(
+		'_id' => 'col-'.rand(),
     'label' => '',
     'span' => '12',
     'span__md' => isset( $atts['span'] ) ? $atts['span'] : '',
@@ -86,7 +87,11 @@ function ux_col($atts, $content = null) {
     'divider' => '',
     'animate' => '',
     'padding' => '',
+    'padding__md' => '',
+    'padding__sm' => '',
     'margin' => '',
+    'margin__md' => '',
+    'margin__sm' => '',
     'tooltip' => '',
     'max_width' => '',
     'hover' => '',
@@ -171,18 +176,21 @@ function ux_col($atts, $content = null) {
 			'attribute' => 'background-color',
 			'value'     => $bg_color,
 		),
-		'padding'       => array(
-			'attribute' => 'padding',
-			'value'     => $padding,
-		),
-		'margin'        => array(
-			'attribute' => 'margin',
-			'value'     => $margin,
-		),
 		'bg_radius' => array(
 			'attribute' => 'border-radius',
 			'value'     => $bg_radius,
 			'unit'      => 'px',
+		),
+	);
+
+	$args = array(
+		'padding' => array(
+			'selector' => '> .col-inner',
+			'property' => 'padding',
+		),
+		'margin'  => array(
+			'selector' => '> .col-inner',
+			'property' => 'margin',
 		),
 	);
 
@@ -194,11 +202,12 @@ function ux_col($atts, $content = null) {
 	ob_start();
 	?>
 
-	<div class="<?php echo esc_attr( $classes ); ?>" <?php echo $attributes; ?>>
+	<div id="<?php echo $_id; ?>" class="<?php echo esc_attr( $classes ); ?>" <?php echo $attributes; ?>>
 		<div class="<?php echo esc_attr( $classes_inner ); ?>" <?php echo get_shortcode_inline_css( $css_args ); ?> <?php echo $attributes_inner; ?>>
 			<?php require __DIR__ . '/commons/border.php'; ?>
 			<?php echo flatsome_contentfix( $content ); ?>
 		</div>
+		<?php echo ux_builder_element_style_tag( $_id, $args, $atts ); ?>
 	</div>
 
 	<?php

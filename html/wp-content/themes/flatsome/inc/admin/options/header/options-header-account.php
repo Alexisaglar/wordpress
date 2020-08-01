@@ -82,7 +82,7 @@ function flatsome_refresh_header_account_partials( WP_Customize_Manager $wp_cust
 
 	// Account
 	$wp_customize->selective_refresh->add_partial( 'header-account', array(
-	    'selector' => '.header-nav .account-item',
+	    'selector' => '.header .account-item',
 	    'container_inclusive' => true,
 	    'settings' => array('header_account_register','account_login_style','account_icon_style','header_account_title','header_account_username'),
 	    'render_callback' => function() {

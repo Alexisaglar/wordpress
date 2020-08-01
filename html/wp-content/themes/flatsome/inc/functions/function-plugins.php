@@ -26,11 +26,6 @@ function flatsome_register_required_plugins() {
 			'version' => '2.6',
 		),
 		array(
-			'name'    => 'Unlimited Sidebars Woosidebars',
-			'slug'    => 'woosidebars',
-			'version' => '1.3.1',
-		),
-		array(
 			'name' => 'Nextend Social Login', // The plugin name.
 			'slug' => 'nextend-facebook-connect', // The plugin slug (typically the folder name).
 		),

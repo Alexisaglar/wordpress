@@ -1,11 +1,14 @@
 <?php
 
 //Access the WordPress Pages via an Array
-$list_pages = array();
-$of_pages_obj     = get_pages('sort_column=post_parent,menu_order');
-$list_pages  ['0'] = 'Select a page:';
+$list_pages            = array();
+$list_pages_by_id      = array();
+$of_pages_obj          = get_pages('sort_column=post_parent,menu_order');
+$list_pages['0']       = 'Select a page:';
+$list_pages_by_id['0'] = 'Select a page:';
 foreach ($of_pages_obj as $of_page) {
     $list_pages[$of_page->post_name] = $of_page->post_title;
+    $list_pages_by_id[$of_page->ID] = $of_page->post_title;
 }
 
 $blocks = array(false => '-- None --');
@@ -95,7 +98,7 @@ $button_styles = array(
     'outline' => __( 'Outline', 'flatsome-admin' ),
     'shade' => __( 'Shade', 'flatsome-admin' ),
     'underline' => __( 'Underline', 'flatsome-admin' ),
-    'link' => __( 'link', 'flatsome-admin' ),
+    'link' => __( 'Link', 'flatsome-admin' ),
 );
 
 $nav_sizes = array(

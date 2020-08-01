@@ -18,6 +18,7 @@
 			<key name="catalog_mode_product" />
 			<key name="category_filter_text"/>
 			<key name="contact_hours_details"/>
+			<key name="cookie_notice_text" />
 			<key name="featured_items_page" />
 			<key name="footer_left_text" />
 			<key name="footer_right_text" />
@@ -44,6 +45,7 @@
 			<key name="maintenance_mode_text"/>
 			<key name="nav_position_text" />
 			<key name="nav_position_text_top" />
+			<key name="privacy_policy_page" />
 			<key name="sale_bubble_percentage_formatting"/>
 			<key name="sale_bubble_text"/>
 			<key name="search_placeholder"/>
@@ -146,6 +148,24 @@
 			<tag>ux_product_flip</tag>
 			<attributes>
 				<attribute>title</attribute>
+			</attributes>
+		</shortcode>
+		<shortcode>
+			<tag>row</tag>
+			<attributes>
+				<attribute>label</attribute>
+			</attributes>
+		</shortcode>
+		<shortcode>
+			<tag>col</tag>
+			<attributes>
+				<attribute>label</attribute>
+			</attributes>
+		</shortcode>
+		<shortcode>
+			<tag>section</tag>
+			<attributes>
+				<attribute>label</attribute>
 			</attributes>
 		</shortcode>
 		<shortcode>
@@ -257,6 +277,9 @@
 <!--				<attribute>title?</attribute>-->
 <!--			</attributes>-->
 <!--		</shortcode>-->
+		<shortcode>
+			<tag>ux_text</tag>
+		</shortcode>
 	</shortcodes>
 </wpml-config>
 

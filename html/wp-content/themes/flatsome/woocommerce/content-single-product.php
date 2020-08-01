@@ -30,7 +30,7 @@ global $product;
 	do_action( 'woocommerce_before_single_product' );
 
 	if ( post_password_required() ) {
-		echo get_the_password_form(); // WPCS: XSS ok.
+		echo get_the_password_form(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		return;
 	}
 	?>

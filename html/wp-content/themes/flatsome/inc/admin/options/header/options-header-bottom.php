@@ -132,7 +132,7 @@ Flatsome_Option::add_field( 'option',  array(
 Flatsome_Option::add_field( 'option',  array(
     'type'        => 'color',
     'settings'     => 'type_nav_bottom_color_hover',
-    'label'       => __( 'Nav Color:hover', 'flatsome-admin' ),
+    'label'       => __( 'Nav Color :hover', 'flatsome-admin' ),
 	'section'     => 'bottom_bar',
     'transport' => $transport
 ));

@@ -355,6 +355,13 @@ $wp_admin_bar->add_menu( array(
  'href' =>  $optionUrl_section.'share'
 ));
 
+	$wp_admin_bar->add_menu( array(
+		'parent' => 'theme_options',
+		'id'     => 'options_gdpr',
+		'title'  => '<span class="dashicons dashicons-shield" style="' . $icon_style . '"></span> GDPR',
+		'href'   => $optionUrl_section . 'gdpr',
+	) );
+
 
 $wp_admin_bar->add_menu( array(
  'parent' => 'theme_options',

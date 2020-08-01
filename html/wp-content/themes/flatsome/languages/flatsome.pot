@@ -2,14 +2,14 @@
 # This file is distributed under the http://themeforest.net/licenses.
 msgid ""
 msgstr ""
-"Project-Id-Version: Flatsome 3.11.0\n"
+"Project-Id-Version: Flatsome 3.12.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/flatsome\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-03-12T14:35:00+00:00\n"
+"POT-Creation-Date: 2020-07-06T11:38:21+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: flatsome\n"
@@ -108,6 +108,51 @@ msgstr ""
 msgid "Edit with UX Builder"
 msgstr ""
 
+#: inc/admin/options/gdpr/options-cookies.php:98
+#: inc/extensions/flatsome-cookie-notice/flatsome-cookie-notice.php:39
+msgid "This site uses cookies to improve your browse experience. By browsing this website, you agree to our use of cookies."
+msgstr ""
+
+#: inc/admin/options/header/options-header-mobile.php:85
+msgid "Menu item behavior"
+msgstr ""
+
+#: inc/admin/options/header/options-header-mobile.php:86
+msgid "Click behavior for menu items with a submenu"
+msgstr ""
+
+#: inc/admin/options/header/options-header-mobile.php:91
+msgid "Open link"
+msgstr ""
+
+#: inc/admin/options/header/options-header-mobile.php:92
+msgid "Toggle submenu"
+msgstr ""
+
+#: inc/admin/options/header/options-header-mobile.php:99
+msgid "Submenu effect"
+msgstr ""
+
+#: inc/admin/options/header/options-header-mobile.php:104
+msgid "Accordion"
+msgstr ""
+
+#: inc/admin/options/header/options-header-mobile.php:105
+msgid "Slide"
+msgstr ""
+
+#: inc/admin/options/header/options-header-mobile.php:119
+msgid "Submenu levels"
+msgstr ""
+
+#: inc/admin/options/header/options-header-mobile.php:124
+msgid "1 level"
+msgstr ""
+
+#: inc/admin/options/header/options-header-mobile.php:125
+msgid "2 levels"
+msgstr ""
+
 #: inc/admin/options/portfolio/options-portfolio.php:76
 msgid "Show share icons"
 msgstr ""
@@ -118,6 +163,22 @@ msgstr ""
 
 #: inc/admin/options/shop/options-shop-cart-checkout.php:54
 msgid "Show shipping estimate destination"
+msgstr ""
+
+#: inc/admin/options/shop/options-shop-product-page.php:39
+#: inc/woocommerce/structure-wc-category-page.php:141
+#: inc/woocommerce/structure-wc-product-page-fields.php:22
+msgid "Custom product layout"
+msgstr ""
+
+#: inc/extensions/flatsome-cookie-notice/flatsome-cookie-notice.php:50
+msgctxt "cookie notice"
+msgid "More info"
+msgstr ""
+
+#: inc/extensions/flatsome-cookie-notice/flatsome-cookie-notice.php:60
+msgctxt "cookie notice"
+msgid "Accept"
 msgstr ""
 
 #: inc/extensions/flatsome-infinite-scroll/templates/button.php:2
@@ -132,24 +193,25 @@ msgstr ""
 msgid "Quick View"
 msgstr ""
 
-#: inc/functions/function-custom-css.php:622
+#: inc/functions/function-custom-css.php:655
 #: inc/woocommerce/structure-wc-product-box.php:29
 msgid "New"
 msgstr ""
 
-#: inc/functions/function-custom-css.php:623
+#: inc/functions/function-custom-css.php:656
 msgid "Hot"
 msgstr ""
 
-#: inc/functions/function-custom-css.php:624
+#: inc/functions/function-custom-css.php:657
 msgid "Sale"
 msgstr ""
 
-#: inc/functions/function-custom-css.php:625
+#: inc/functions/function-custom-css.php:658
 msgid "Popular"
 msgstr ""
 
 #: inc/functions/function-setup.php:53
+#: inc/functions/function-setup.php:175
 msgid "Main Menu"
 msgstr ""
 
@@ -187,13 +249,13 @@ msgid "Wishlist"
 msgstr ""
 
 #. translators: %s: comment count
-#: inc/shortcodes/blog_posts.php:276
+#: inc/shortcodes/blog_posts.php:281
 msgid "%s Comment"
 msgid_plural "%s Comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/shortcodes/portfolio.php:146
+#: inc/shortcodes/portfolio.php:143
 #: woocommerce/product-searchform.php:38
 msgid "All"
 msgstr ""
@@ -397,7 +459,7 @@ msgid "Complete the look"
 msgstr ""
 
 #: inc/woocommerce/structure-wc-category-page.php:97
-#: inc/woocommerce/structure-wc-product-page-fields.php:93
+#: inc/woocommerce/structure-wc-product-page-fields.php:31
 msgid "Top Content"
 msgstr ""
 
@@ -406,12 +468,16 @@ msgid "Enter a value for this field. Shortcodes are allowed. This will be displa
 msgstr ""
 
 #: inc/woocommerce/structure-wc-category-page.php:119
-#: inc/woocommerce/structure-wc-product-page-fields.php:103
+#: inc/woocommerce/structure-wc-product-page-fields.php:38
 msgid "Bottom Content"
 msgstr ""
 
 #: inc/woocommerce/structure-wc-category-page.php:124
 msgid "Enter a value for this field. Shortcodes are allowed. This will be displayed at bottom of the category."
+msgstr ""
+
+#: inc/woocommerce/structure-wc-category-page.php:152
+msgid "Choose a custom product block layout for this category."
 msgstr ""
 
 #: inc/woocommerce/structure-wc-checkout.php:166
@@ -434,40 +500,48 @@ msgstr ""
 msgid "Pages found"
 msgstr ""
 
-#: inc/woocommerce/structure-wc-product-page-fields.php:11
-msgid "Extra"
+#: inc/woocommerce/structure-wc-product-page-fields.php:17
+msgid "Product layout"
 msgstr ""
 
-#: inc/woocommerce/structure-wc-product-page-fields.php:18
-msgid "Enable a custom bubble on this product."
+#: inc/woocommerce/structure-wc-product-page-fields.php:24
+msgid "Choose a custom product block layout for this product."
 msgstr ""
 
-#: inc/woocommerce/structure-wc-product-page-fields.php:49
-msgid "Custom Tab Content"
-msgstr ""
-
-#: inc/woocommerce/structure-wc-product-page-fields.php:52
-msgid "Enter content for custom product tab here. Shortcodes are allowed"
-msgstr ""
-
-#: inc/woocommerce/structure-wc-product-page-fields.php:61
-msgid "Product Video"
-msgstr ""
-
-#: inc/woocommerce/structure-wc-product-page-fields.php:63
-msgid "Enter a Youtube or Vimeo Url of the product video here. We recommend uploading your video to Youtube."
-msgstr ""
-
-#: inc/woocommerce/structure-wc-product-page-fields.php:82
-msgid "Select where you want to display product video."
-msgstr ""
-
-#: inc/woocommerce/structure-wc-product-page-fields.php:96
+#: inc/woocommerce/structure-wc-product-page-fields.php:33
 msgid "Enter content that will show after the header and before the product. Shortcodes are allowed"
 msgstr ""
 
-#: inc/woocommerce/structure-wc-product-page-fields.php:106
+#: inc/woocommerce/structure-wc-product-page-fields.php:40
 msgid "Enter content that will show after the product info. Shortcodes are allowed"
+msgstr ""
+
+#: inc/woocommerce/structure-wc-product-page-fields.php:46
+msgid "Extra"
+msgstr ""
+
+#: inc/woocommerce/structure-wc-product-page-fields.php:52
+msgid "Enable a custom bubble on this product."
+msgstr ""
+
+#: inc/woocommerce/structure-wc-product-page-fields.php:82
+msgid "Custom Tab Content"
+msgstr ""
+
+#: inc/woocommerce/structure-wc-product-page-fields.php:84
+msgid "Enter content for custom product tab here. Shortcodes are allowed"
+msgstr ""
+
+#: inc/woocommerce/structure-wc-product-page-fields.php:93
+msgid "Product Video"
+msgstr ""
+
+#: inc/woocommerce/structure-wc-product-page-fields.php:95
+msgid "Enter a Youtube or Vimeo Url of the product video here. We recommend uploading your video to Youtube."
+msgstr ""
+
+#: inc/woocommerce/structure-wc-product-page-fields.php:110
+msgid "Select where you want to display product video."
 msgstr ""
 
 #: inc/woocommerce/structure-wc-product-page.php:73

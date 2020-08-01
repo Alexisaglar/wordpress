@@ -47,7 +47,7 @@ add_action( 'woocommerce_share', 'flatsome_product_share',  10 );
 
 /* Remove Product Description Heading */
 function flatsome_remove_product_description_heading($heading){
- 
+
      return $heading = '';
 }
 add_filter('woocommerce_product_description_heading','flatsome_remove_product_description_heading');
@@ -223,7 +223,6 @@ function flatsome_product_top_content(){
 }
 
 add_action('flatsome_before_product_page','flatsome_product_top_content', 10);
-
 
 // Add Custom HTML to bottom of product page
 function flatsome_product_bottom_content(){
